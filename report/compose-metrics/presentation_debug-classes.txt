@@ -1,0 +1,49 @@
+unstable class BaseViewModel {
+  unstable val _state: MutableStateFlow<State>
+  unstable val state: StateFlow<State>
+  unstable val _sideEffect: MutableSharedFlow<SideEffect>
+  unstable val sideEffect: SharedFlow<SideEffect>
+  <runtime stability> = Unstable
+}
+unstable class SaveableMutableStateFlow {
+  unstable val savedStateHandle: SavedStateHandle
+  stable val key: String
+  unstable val state: StateFlow<T>
+  <runtime stability> = Unstable
+}
+unstable class HomeActivity {
+  unstable val viewModel$delegate: Lazy<HomeViewModel>
+  <runtime stability> = Unstable
+}
+unstable class HomeViewModel {
+  unstable val searchSongPagingDataUseCase: SearchSongPagingDataUseCase
+  unstable val getFavoritesUseCase: GetFavoritesUseCase
+  unstable val toggleFavoriteUseCase: ToggleFavoriteUseCase
+  unstable val _navigationRoute: SaveableMutableStateFlow<HomeNavigationStep>
+  unstable val navigationRoute: StateFlow<HomeNavigationStep>
+  unstable val _searchSongTracks: MutableStateFlow<PagingData<TrackModel>>
+  unstable val searchSongTracks: Flow<PagingData<TrackModel>>
+  <runtime stability> = Unstable
+}
+stable class SearchListScrollToTop {
+  <runtime stability> = Stable
+}
+stable class FavoriteListScrollToTop {
+  <runtime stability> = Stable
+}
+stable class HomeSideEffect {
+  <runtime stability> = Stable
+}
+stable class HomeState {
+  stable val favoriteTracks: ImmutableList<TrackModel>
+  <runtime stability> = 
+}
+stable class TrackModel {
+  stable val trackId: Int
+  stable val trackName: String
+  stable val collectionName: String
+  stable val artistName: String
+  stable val artworkUrl60: String
+  stable val isFavorite: Boolean
+  <runtime stability> = Stable
+}

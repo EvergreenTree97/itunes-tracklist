@@ -1,0 +1,105 @@
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun ErrorScreen(
+  stable modifier: Modifier? = @static Companion
+  stable errorMessage: String
+  stable buttonText: String
+  stable onClick: Function0<Unit>
+)
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun LoadingIndicator(
+  stable modifier: Modifier? = @static Companion
+  stable contentAlignment: Alignment? = @static Companion.Center
+)
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun NoItemScreen(
+  stable modifier: Modifier? = @static Companion
+  stable alignment: Alignment? = @static Companion.Center
+  stable text: String
+)
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun Spacer(
+  unused stable <this>: ColumnScope
+  stable space: Dp
+)
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun Spacer(
+  stable <this>: ColumnScope
+  stable weight: Float
+)
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun ToggleIcon(
+  stable modifier: Modifier? = @static Companion
+  stable iconRes: Int
+  stable contentDescription: String
+  stable selected: Boolean
+  stable selectedColor: Color = @dynamic MaterialTheme.colors.primary
+  stable unselectedColor: Color = @dynamic MaterialTheme.colors.onSurface
+)
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun TitleTopAppBar(
+  stable modifier: Modifier? = @static Companion
+  stable title: String
+)
+restartable skippable scheme("[androidx.compose.ui.UiComposable, [androidx.compose.ui.UiComposable], [androidx.compose.ui.UiComposable], [androidx.compose.ui.UiComposable]]") fun TopAppBar(
+  stable modifier: Modifier? = @static Companion
+  stable leftContent: Function2<Composer, Int, Unit>? = @static null
+  stable centerContent: Function2<Composer, Int, Unit>? = @static null
+  stable rightContent: Function2<Composer, Int, Unit>? = @static null
+)
+restartable skippable scheme("[androidx.compose.ui.UiComposable, [androidx.compose.ui.UiComposable]]") fun ContentOrSpacer(
+  stable content: Function2<Composer, Int, Unit>? = @static null
+)
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun TrackContent(
+  stable modifier: Modifier? = @static Companion
+  stable track: TrackModel
+  stable onClickFavorite: Function1<TrackModel, Unit>
+  unused stable isLoading: Boolean = @dynamic LiveLiterals$TrackContentKt.Boolean$param-isLoading$fun-TrackContent()
+)
+restartable fun Thumbnail(
+  stable modifier: Modifier? = @static Companion
+  unstable model: Any?
+)
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun Information(
+  stable modifier: Modifier? = @static Companion
+  stable trackName: String
+  stable collectionName: String
+  stable artistName: String
+)
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun EllipsisText(
+  stable modifier: Modifier? = @static Companion
+  stable text: String
+  stable style: TextStyle? = @dynamic LocalTextStyle.current
+  stable maxLines: Int = @dynamic LiveLiterals$TrackContentKt.Int$param-maxLines$fun-EllipsisText()
+  stable overflow: TextOverflow = @static Companion.Ellipsis
+)
+restartable scheme("[androidx.compose.ui.UiComposable]") fun FavoriteScreen(
+  unstable viewModel: HomeViewModel
+  stable lazyListState: LazyListState
+)
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun FavoriteTrackContent(
+  stable modifier: Modifier? = @static Companion
+  stable favoriteTracks: ImmutableList<TrackModel>
+  stable onClickFavorite: Function1<TrackModel, Unit>
+  stable lazyListState: LazyListState
+)
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun HomeBottomNavigation(
+  stable modifier: Modifier? = @static Companion
+  stable selectedIndex: Int
+  stable onClick: Function1<@[ParameterName(name = 'index')] Int, Unit>
+)
+fun colorFor(
+  stable isSelected: Boolean
+): Color
+fun rememberHomeBottomNavigationIcons()
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun SearchTrackContent(
+  stable modifier: Modifier? = @static Companion
+  trackPagingItems: LazyPagingItems<TrackModel>
+  stable onClickFavorite: Function1<TrackModel, Unit>
+  stable lazyListState: LazyListState
+  unused stable isLoading: Boolean = @dynamic LiveLiterals$SearcContentKt.Boolean$param-isLoading$fun-SearchTrackContent()
+)
+restartable scheme("[androidx.compose.ui.UiComposable]") fun SearchScreen(
+  unstable viewModel: HomeViewModel
+  stable lazyListState: LazyListState
+  trackPagingItems: LazyPagingItems<TrackModel>
+)
+restartable scheme("[androidx.compose.ui.UiComposable]") fun PagingStateHandler(
+  unstable loadStates: CombinedLoadStates
+  stable onRetry: Function0<Unit>
+)
+restartable skippable scheme("[0, [0]]") fun WatchaTheme(
+  stable content: Function2<Composer, Int, Unit>
+)
