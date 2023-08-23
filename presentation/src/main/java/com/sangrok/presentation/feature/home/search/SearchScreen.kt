@@ -23,8 +23,6 @@ import com.sangrok.presentation.common.compose.TitleTopAppBar
 import com.sangrok.presentation.feature.home.HomeViewModel
 import com.sangrok.presentation.feature.home.model.TrackModel
 
-private const val SearchScreenCrossFadeLabel = "SearchScreenCrossFade"
-
 @Composable
 internal fun SearchScreen(
     viewModel: HomeViewModel,
@@ -57,7 +55,6 @@ private fun PagingStateHandler(
 ) {
     Crossfade(
         targetState = loadStates,
-        label = SearchScreenCrossFadeLabel
     ) { state ->
         when {
             state.isRefreshLoading -> {

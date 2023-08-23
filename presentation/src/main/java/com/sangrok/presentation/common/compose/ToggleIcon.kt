@@ -25,7 +25,6 @@ internal fun ToggleIcon(
         } else {
             unselectedColor
         },
-        label = "toggle button",
     )
     Icon(
         modifier = modifier,

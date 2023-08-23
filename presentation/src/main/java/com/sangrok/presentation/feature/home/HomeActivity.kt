@@ -21,8 +21,6 @@ import com.sangrok.presentation.feature.home.search.SearchScreen
 import com.sangrok.presentation.theme.WatchaTheme
 import dagger.hilt.android.AndroidEntryPoint
 
-private const val HomeActivityCrossFadeLabel = "HomeActivityCrossFade"
-
 @AndroidEntryPoint
 class HomeActivity : ComponentActivity() {
     private val viewModel: HomeViewModel by viewModels()
@@ -41,7 +39,6 @@ class HomeActivity : ComponentActivity() {
                         Crossfade(
                             modifier = Modifier.padding(padding),
                             targetState = currentRoute,
-                            label = HomeActivityCrossFadeLabel,
                         ) { state ->
                             when (state) {
                                 HomeNavigationStep.SearchScreen -> {
