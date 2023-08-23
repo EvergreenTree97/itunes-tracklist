@@ -1,0 +1,10 @@
+restartable scheme("[androidx.compose.ui.UiComposable]") fun FavoriteScreen(
+  unstable viewModel: HomeViewModel
+  stable lazyListState: LazyListState
+)
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun FavoriteTrackContent(
+  stable modifier: Modifier? = @static Companion
+  favoriteTracks: ImmutableList<TrackModel>
+  stable onClickFavorite: Function1<TrackModel, Unit>
+  stable lazyListState: LazyListState
+)
