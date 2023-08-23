@@ -34,7 +34,7 @@ internal fun FavoriteScreen(
             FavoriteTrackContent(
                 modifier = Modifier.padding(padding),
                 favoriteTracks = state.favoriteTracks,
-                onClickFavorite = viewModel::clickFavoriteStar,
+                onClickFavorite = viewModel::clickStar,
                 lazyListState = lazyListState,
             )
         }

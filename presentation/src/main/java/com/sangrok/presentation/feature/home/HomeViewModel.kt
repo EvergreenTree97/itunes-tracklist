@@ -1,5 +1,6 @@
 package com.sangrok.presentation.feature.home
 
+import android.util.Log
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
@@ -20,6 +21,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
@@ -55,8 +57,8 @@ class HomeViewModel @Inject constructor(
             postSideEffect { HomeSideEffect.NavigateScreen(homeNavigationStep) }
         }
     }
-    
-    fun clickSearchStar(trackModel: TrackModel) {
+
+    fun clickStar(trackModel: TrackModel) {
         viewModelScope.launch {
             toggleFavoriteUseCase(
                 isMarked = trackModel.isFavorite,
@@ -64,16 +66,6 @@ class HomeViewModel @Inject constructor(
             )
         }
     }
-
-    fun clickFavoriteStar(trackModel: TrackModel) {
-        viewModelScope.launch {
-            toggleFavoriteUseCase(
-                isMarked = trackModel.isFavorite,
-                track = trackModel.toDomain(),
-            )
-        }
-    }
-
 
     private fun getSearchResults(term: String) {
         viewModelScope.launch {
@@ -84,6 +76,9 @@ class HomeViewModel @Inject constructor(
                     pagingData.map {
                         it.toUiModel(isFavorite = favoriteData.contains(it))
                     }
+                }
+                .catch {
+                    Log.d(Tag, "getSearchResults: $it")
                 }.collect {
                     _searchSongTracks.value = it
                 }

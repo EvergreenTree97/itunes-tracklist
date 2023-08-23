@@ -30,7 +30,7 @@ internal fun SearchScreen(
                 modifier = Modifier.padding(padding),
                 lazyListState = lazyListState,
                 trackPagingItems = trackPagingItems,
-                onClickFavorite = viewModel::clickSearchStar,
+                onClickFavorite = viewModel::clickStar,
             )
         }
     )
@@ -41,7 +41,7 @@ private fun SearchTrackContent(
     modifier: Modifier = Modifier,
     trackPagingItems: LazyPagingItems<TrackModel>,
     onClickFavorite: (TrackModel) -> Unit,
-    lazyListState: LazyListState
+    lazyListState: LazyListState,
 ) {
     LazyColumn(
         modifier = modifier,
