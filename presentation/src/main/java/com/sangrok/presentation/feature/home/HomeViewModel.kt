@@ -1,6 +1,5 @@
 package com.sangrok.presentation.feature.home
 
-import android.util.Log
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
@@ -21,7 +20,6 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
@@ -52,10 +50,8 @@ class HomeViewModel @Inject constructor(
     }
 
     fun clickBottomNavigationItem(homeNavigationStep: HomeNavigationStep) {
-        viewModelScope.launch {
-            _navigationRoute.value = homeNavigationStep
-            postSideEffect { HomeSideEffect.NavigateScreen(homeNavigationStep) }
-        }
+        scrollToTop(homeNavigationStep)
+        _navigationRoute.value = homeNavigationStep
     }
 
     fun clickStar(trackModel: TrackModel) {
@@ -65,6 +61,10 @@ class HomeViewModel @Inject constructor(
                 track = trackModel.toDomain(),
             )
         }
+    }
+
+    fun retry() {
+        getSearchResults(term = DefaultTerm)
     }
 
     private fun getSearchResults(term: String) {
@@ -77,9 +77,7 @@ class HomeViewModel @Inject constructor(
                         it.toUiModel(isFavorite = favoriteData.contains(it))
                     }
                 }
-                .catch {
-                    Log.d(Tag, "getSearchResults: $it")
-                }.collect {
+                .collect {
                     _searchSongTracks.value = it
                 }
         }
@@ -97,6 +95,14 @@ class HomeViewModel @Inject constructor(
                         copy(favoriteTracks = it.toImmutableList())
                     }
                 }
+        }
+    }
+
+    private fun scrollToTop(currentRoute: HomeNavigationStep) {
+        if (currentRoute != _navigationRoute.value) return
+        when (currentRoute) {
+            HomeNavigationStep.SearchScreen -> postSideEffect { HomeSideEffect.SearchListScrollToTop }
+            HomeNavigationStep.FavoriteScreen -> postSideEffect { HomeSideEffect.FavoriteListScrollToTop }
         }
     }
 

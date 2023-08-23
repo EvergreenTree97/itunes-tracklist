@@ -1,13 +1,13 @@
 package com.sangrok.data.search.datasource
 
-import com.sangrok.search.model.Track
-import com.sangrok.data.datasource.SearchDataSource
 import com.sangrok.data._remote.api.ItunesApi
+import com.sangrok.data.datasource.SearchDataSource
 import com.sangrok.data.search.mapper.toDomain
+import com.sangrok.search.model.Track
 import javax.inject.Inject
 
 class SearchDataSourceImpl @Inject constructor(
-    private val bookMarkApi: ItunesApi,
+    private val itunesApi: ItunesApi,
 ) : SearchDataSource {
     override suspend fun getSearchResults(
         term: String,
@@ -15,7 +15,7 @@ class SearchDataSourceImpl @Inject constructor(
         offset: Int,
         limit: Int,
     ): List<Track> {
-        return bookMarkApi.getSearchResults(
+        return itunesApi.getSearchResults(
             term = term,
             entity = entity,
             offset = offset,

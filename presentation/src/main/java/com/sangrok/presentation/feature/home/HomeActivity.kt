@@ -1,10 +1,10 @@
 package com.sangrok.presentation.feature.home
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
+import androidx.compose.animation.Crossfade
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.Scaffold
@@ -12,9 +12,6 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
-import androidx.navigation.compose.rememberNavController
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.sangrok.presentation.feature.home.favorite.FavoriteScreen
 import com.sangrok.presentation.feature.home.model.HomeSideEffect
@@ -24,6 +21,8 @@ import com.sangrok.presentation.feature.home.search.SearchScreen
 import com.sangrok.presentation.theme.WatchaTheme
 import dagger.hilt.android.AndroidEntryPoint
 
+private const val HomeActivityCrossFadeLabel = "HomeActivityCrossFade"
+
 @AndroidEntryPoint
 class HomeActivity : ComponentActivity() {
     private val viewModel: HomeViewModel by viewModels()
@@ -32,37 +31,39 @@ class HomeActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             WatchaTheme {
-                val navigationRoute by viewModel.navigationRoute.collectAsStateWithLifecycle()
-                val navController = rememberNavController()
+                val currentRoute by viewModel.navigationRoute.collectAsStateWithLifecycle()
                 val searchLazyListState = rememberLazyListState()
                 val favoriteLazyListState = rememberLazyListState()
                 val trackPagingItems = viewModel.searchSongTracks.collectAsLazyPagingItems()
 
                 Scaffold(
                     content = { padding ->
-                        NavHost(
+                        Crossfade(
                             modifier = Modifier.padding(padding),
-                            navController = navController,
-                            startDestination = HomeNavigationStep.default().name,
-                        ) {
-                            composable(HomeNavigationStep.SearchScreen.name) {
-                                SearchScreen(
-                                    viewModel = viewModel,
-                                    trackPagingItems = trackPagingItems,
-                                    lazyListState = searchLazyListState,
-                                )
-                            }
-                            composable(HomeNavigationStep.FavoriteScreen.name) {
-                                FavoriteScreen(
-                                    viewModel = viewModel,
-                                    lazyListState = favoriteLazyListState,
-                                )
+                            targetState = currentRoute,
+                            label = HomeActivityCrossFadeLabel,
+                        ) { state ->
+                            when (state) {
+                                HomeNavigationStep.SearchScreen -> {
+                                    SearchScreen(
+                                        viewModel = viewModel,
+                                        trackPagingItems = trackPagingItems,
+                                        lazyListState = searchLazyListState,
+                                    )
+                                }
+
+                                HomeNavigationStep.FavoriteScreen -> {
+                                    FavoriteScreen(
+                                        viewModel = viewModel,
+                                        lazyListState = favoriteLazyListState,
+                                    )
+                                }
                             }
                         }
                     },
                     bottomBar = {
                         HomeBottomNavigation(
-                            selectedIndex = navigationRoute.index,
+                            selectedIndex = currentRoute.index,
                             onClick = {
                                 viewModel.clickBottomNavigationItem(HomeNavigationStep.toStep(it))
                             },
@@ -73,10 +74,12 @@ class HomeActivity : ComponentActivity() {
                 LaunchedEffect(Unit) {
                     viewModel.sideEffect.collect { sideEffect ->
                         when (sideEffect) {
-                            is HomeSideEffect.NavigateScreen -> {
-                                navController.navigate(sideEffect.navigationStep.name) {
-                                    launchSingleTop = true
-                                }
+                            HomeSideEffect.FavoriteListScrollToTop -> {
+                                favoriteLazyListState.scrollToItem(0)
+                            }
+
+                            HomeSideEffect.SearchListScrollToTop -> {
+                                searchLazyListState.scrollToItem(0)
                             }
                         }
                     }

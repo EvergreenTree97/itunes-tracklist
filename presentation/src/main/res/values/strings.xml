@@ -3,4 +3,9 @@
     <string name="search">검색</string>
     <string name="favorite">즐겨찾기</string>
     <string name="greenday">greenday</string>
+    <string name="retry">다시 시도</string>
+    <string name="network_retry">네트워크 연결이 불안정합니다.</string>
+    <string name="network_retry_recommend">네트워크가 연결되어 있는지 확인해 주세요:)</string>
+
+    <string name="no_favorite_item_yet">아직 즐겨찾기한 목록이 없어요:(</string>
 </resources>

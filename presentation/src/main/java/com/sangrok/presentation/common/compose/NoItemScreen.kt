@@ -1,21 +1,21 @@
 package com.sangrok.presentation.common.compose
 
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.CircularProgressIndicator
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 
 @Composable
-internal fun LoadingIndicator(
+internal fun NoItemScreen(
     modifier: Modifier = Modifier,
-    contentAlignment: Alignment = Alignment.Center,
+    alignment: Alignment = Alignment.Center,
+    text: String,
 ) {
     Box(
         modifier = modifier,
-        contentAlignment = contentAlignment,
+        contentAlignment = alignment,
     ) {
-        CircularProgressIndicator()
+        Text(text)
     }
 }

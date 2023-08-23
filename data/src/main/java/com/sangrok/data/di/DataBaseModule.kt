@@ -2,8 +2,8 @@ package com.sangrok.data.di
 
 import android.content.Context
 import androidx.room.Room
-import com.sangrok.data.favorite.dao.FavoriteDao
 import com.sangrok.data._local.db.WatchaDatabase
+import com.sangrok.data.favorite.dao.FavoriteDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -23,7 +23,7 @@ internal class DataBaseModule {
 
     @Singleton
     @Provides
-    fun providePdfDao(database: WatchaDatabase): FavoriteDao {
+    fun provideFavoritefDao(database: WatchaDatabase): FavoriteDao {
         return database.favoriteDao()
     }
 }

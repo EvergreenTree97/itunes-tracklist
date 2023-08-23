@@ -32,6 +32,7 @@ internal fun TrackContent(
     modifier: Modifier = Modifier,
     track: TrackModel,
     onClickFavorite: (TrackModel) -> Unit,
+    isLoading: Boolean = false,
 ) = with(track) {
     Row(
         modifier = modifier
@@ -44,6 +45,7 @@ internal fun TrackContent(
     ) {
         Thumbnail(
             modifier = Modifier
+                .clip(RoundedCornerShape(8.dp))
                 .weight(1f)
                 .aspectRatio(ThumbnailRatio),
             model = artworkUrl60,
@@ -79,7 +81,7 @@ private fun Thumbnail(
     model: Any?,
 ) {
     AsyncImage(
-        modifier = modifier.clip(RoundedCornerShape(8.dp)),
+        modifier = modifier,
         model = model,
         contentDescription = "thumbnail",
         contentScale = ContentScale.Crop,

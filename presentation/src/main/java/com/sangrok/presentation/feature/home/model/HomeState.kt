@@ -5,5 +5,4 @@ import kotlinx.collections.immutable.persistentListOf
 
 data class HomeState(
     val favoriteTracks: ImmutableList<TrackModel> = persistentListOf(),
-    val searchListScrollPosition: Int = 0,
 )
