@@ -9,7 +9,6 @@ import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
@@ -27,7 +26,6 @@ internal class NetworkModule {
     ): Retrofit = Retrofit.Builder()
         .baseUrl(BuildConfig.ITUNES_URL)
         .client(okHttpClient)
-        .addConverterFactory(GsonConverterFactory.create())
         .build()
 
     @Provides

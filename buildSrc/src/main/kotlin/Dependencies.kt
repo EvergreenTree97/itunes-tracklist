@@ -24,7 +24,6 @@ object Dependencies {
         "com.squareup.retrofit2:retrofit:${Versions.Network.Retrofit}",
         "com.squareup.okhttp3:logging-interceptor:${Versions.Network.OkHttp}",
         "com.squareup.okhttp3:okhttp:${Versions.Network.OkHttp}",
-        "com.squareup.retrofit2:converter-gson:${Versions.Network.Retrofit}"
     )
 
     object Paging {
@@ -39,16 +38,12 @@ object Dependencies {
             "androidx.compose.foundation:foundation:${Versions.Compose.Main}",
             "androidx.compose.material:material:${Versions.Compose.Material}",
             "androidx.paging:paging-compose:${Versions.Compose.Paging}",
-            "androidx.navigation:navigation-compose:${Versions.Compose.Navigation}",
-            "androidx.hilt:hilt-navigation-compose:${Versions.Compose.HiltNavigation}",
         )
         val sub = listOf(
             "androidx.activity:activity-compose:${Versions.Compose.Activity}",
             "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.Compose.Lifecycle}",
             "androidx.lifecycle:lifecycle-runtime-compose:${Versions.Compose.Lifecycle}",
             "io.coil-kt:coil-compose:${Versions.Compose.Coil}",
-            "androidx.compose.ui:ui-tooling:${Versions.Compose.Main}",
-            "androidx.compose.ui:ui-tooling-preview:${Versions.Compose.Main}"
         )
     }
 

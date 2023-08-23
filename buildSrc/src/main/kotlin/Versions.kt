@@ -36,8 +36,6 @@ object Versions {
         const val Lifecycle = "2.6.1"
         const val Coil = "2.2.2"
         const val Paging = "3.2.0"
-        const val Navigation = "2.5.1"
-        const val HiltNavigation = "1.0.0"
     }
 
     object Test {
