@@ -21,6 +21,13 @@ restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun Spacer(
   stable <this>: ColumnScope
   stable weight: Float
 )
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun EllipsisText(
+  stable modifier: Modifier? = @static Companion
+  stable text: String
+  stable style: TextStyle? = @dynamic LocalTextStyle.current
+  stable maxLines: Int = @dynamic LiveLiterals$TextKt.Int$param-maxLines$fun-EllipsisText()
+  stable overflow: TextOverflow = @static Companion.Ellipsis
+)
 restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun ToggleIcon(
   stable modifier: Modifier? = @static Companion
   stable iconRes: Int
@@ -46,7 +53,6 @@ restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun TrackCont
   stable modifier: Modifier? = @static Companion
   stable track: TrackModel
   stable onClickFavorite: Function1<TrackModel, Unit>
-  unused stable isLoading: Boolean = @dynamic LiveLiterals$TrackContentKt.Boolean$param-isLoading$fun-TrackContent()
 )
 restartable fun Thumbnail(
   stable modifier: Modifier? = @static Companion
@@ -57,13 +63,6 @@ restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun Informati
   stable trackName: String
   stable collectionName: String
   stable artistName: String
-)
-restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun EllipsisText(
-  stable modifier: Modifier? = @static Companion
-  stable text: String
-  stable style: TextStyle? = @dynamic LocalTextStyle.current
-  stable maxLines: Int = @dynamic LiveLiterals$TrackContentKt.Int$param-maxLines$fun-EllipsisText()
-  stable overflow: TextOverflow = @static Companion.Ellipsis
 )
 restartable scheme("[androidx.compose.ui.UiComposable]") fun FavoriteScreen(
   unstable viewModel: HomeViewModel
@@ -89,7 +88,7 @@ restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun SearchTra
   trackPagingItems: LazyPagingItems<TrackModel>
   stable onClickFavorite: Function1<TrackModel, Unit>
   stable lazyListState: LazyListState
-  unused stable isLoading: Boolean = @dynamic LiveLiterals$SearcContentKt.Boolean$param-isLoading$fun-SearchTrackContent()
+  unused stable isLoading: Boolean = @dynamic LiveLiterals$SearchContentKt.Boolean$param-isLoading$fun-SearchTrackContent()
 )
 restartable scheme("[androidx.compose.ui.UiComposable]") fun SearchScreen(
   unstable viewModel: HomeViewModel
