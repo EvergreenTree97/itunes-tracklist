@@ -30,7 +30,6 @@ internal fun TrackContent(
     modifier: Modifier = Modifier,
     track: TrackModel,
     onClickFavorite: (TrackModel) -> Unit,
-    isLoading: Boolean = false,
 ) = with(track) {
     Row(
         modifier = modifier
