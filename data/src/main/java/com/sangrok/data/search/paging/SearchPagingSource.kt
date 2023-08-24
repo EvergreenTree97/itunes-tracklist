@@ -19,28 +19,23 @@ class SearchPagingSource(
 ) : PagingSource<Int, Track>() {
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Track> {
         return try {
-            val position = params.key ?: START_PAGE
-            val offset = getOffset(params.key, position)
+            val offset = params.key ?: START_PAGE
             val limit = params.loadSize
             val response = getSearchResults(offset, limit)
 
-
             LoadResult.Page(
                 data = response,
-                prevKey = if (position == START_PAGE) {
+                prevKey = if (offset == START_PAGE) {
                     null
                 } else {
-                    position - 1
+                    offset - 1
                 },
                 nextKey = if (response.isEmpty()) {
                     null
                 } else {
-                    position + (params.loadSize / PAGE_SIZE)
+                    offset + 1
                 },
-            ).also {
-                println("offset: $offset limit: $limit")
-                println("$it")
-            }
+            )
         } catch (e: Exception) {
             LoadResult.Error(e)
         }
@@ -48,13 +43,5 @@ class SearchPagingSource(
 
     override fun getRefreshKey(state: PagingState<Int, Track>): Int? {
         return null
-    }
-
-    private fun getOffset(key: Int?, position: Int): Int {
-        return if (key != null) {
-            position * PAGE_SIZE
-        } else {
-            START_PAGE
-        }
     }
 }
