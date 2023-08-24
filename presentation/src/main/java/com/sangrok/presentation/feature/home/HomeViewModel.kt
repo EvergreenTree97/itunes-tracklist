@@ -107,7 +107,6 @@ class HomeViewModel @Inject constructor(
     }
 
     companion object {
-        private const val Tag = "SearchViewModel"
         private const val DefaultTerm = "greenday"
     }
 }
