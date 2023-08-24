@@ -37,8 +37,4 @@ object Versions {
         const val Coil = "2.2.2"
         const val Paging = "3.2.0"
     }
-
-    object Test {
-        const val JUnit = "4.13.2"
-    }
 }

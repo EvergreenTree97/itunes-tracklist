@@ -32,6 +32,5 @@ dependencies {
     implementation(Dependencies.Room.Core)
     implementation(Dependencies.Paging.Runtime)
     implementation(Dependencies.Kotlin.Coroutine)
-    Dependencies.Test.forEach(::testImplementation)
     Dependencies.Network.forEach(::implementation)
 }

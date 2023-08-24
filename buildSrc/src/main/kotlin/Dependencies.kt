@@ -47,8 +47,4 @@ object Dependencies {
             "io.coil-kt:coil-compose:${Versions.Compose.Coil}",
         )
     }
-
-    val Test = listOf(
-        "junit:junit:${Versions.Test.JUnit}",
-    )
 }

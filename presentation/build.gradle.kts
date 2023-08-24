@@ -45,5 +45,4 @@ dependencies {
     implementation(Dependencies.Kotlin.ImmutableCollections)
     Dependencies.Compose.core.forEach(::implementation)
     Dependencies.Compose.sub.forEach(::implementation)
-    Dependencies.Test.forEach(::testImplementation)
 }
