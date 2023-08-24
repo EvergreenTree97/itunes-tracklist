@@ -3,9 +3,9 @@
 
     <application
         android:name=".WatchaAssignmentApplication"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_watcha_icon"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_watcha_icon_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Watcha.NoActionBar" />
 
