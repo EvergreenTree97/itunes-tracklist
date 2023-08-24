@@ -1,3 +1,8 @@
+## Environment
+minSdkVersion : 23
+
+android studio 최소 버전 : ```Electric Eel | 2022.1.1```
+
 ## Tech Stack
 
 - Compose : 선언형 UI 구성
