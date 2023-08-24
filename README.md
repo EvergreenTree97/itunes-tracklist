@@ -1,10 +1,10 @@
 ## Environment
-minSdkVersion : 23
+- minSdkVersion : 23
 
-targetSdkVersion : 33
+- targetSdkVersion : 33
 
-gradle plugin : 7.3.0
-- android studio 최소 버전 : `Dolphin | 2021.3.1`
+- gradle plugin : 7.3.0
+  - android studio 최소 버전 : `Dolphin | 2021.3.1`
 
 ## Tech Stack
 
@@ -17,9 +17,9 @@ gradle plugin : 7.3.0
 - `Room` : Favorite 트랙들을 보존하기 위해 사용
 - `Retrofit, Okhttp` : 네트워크 통신
 
+<br>
+
 ## Architecture
-
-
 
 - `Di using  Hilt`
 - `UDF using AAC ViewModel`
@@ -29,6 +29,13 @@ gradle plugin : 7.3.0
 | 즐겨찾기 기능 |   페이징    | 네트워크 에러 대응  |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | ![favortie](https://github.com/EvergreenTree97/itunes-tracklist/assets/70064912/f0105f84-a478-4434-88ae-ed45449fc0ef)| ![ezgif com-video-to-gif](https://github.com/EvergreenTree97/itunes-tracklist/assets/70064912/2343d934-b32a-4564-888b-f8e06a254ce7) | ![ezgif com-video-to-gif (1)](https://github.com/EvergreenTree97/itunes-tracklist/assets/70064912/1a94f94a-3782-46ab-838b-3e5f2701c2d3)
+
+## Bug
+- 현재 Itunes API offset을 사용할 때 중복된 데이터를 내려주고 있음
+
+참고 링크: https://stackoverflow.com/questions/44177089/itunes-search-api-page-number-for-the-query
+
+<br>
 
 ## Edge case
 - 화면 세로 모드로 고정
