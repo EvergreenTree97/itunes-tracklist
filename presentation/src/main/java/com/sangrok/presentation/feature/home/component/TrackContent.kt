@@ -7,19 +7,17 @@ import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.LocalTextStyle
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.sangrok.presentation.R
+import com.sangrok.presentation.common.compose.EllipsisText
 import com.sangrok.presentation.common.compose.Spacer
 import com.sangrok.presentation.common.compose.ToggleIcon
 import com.sangrok.presentation.common.compose.watchaClickable
@@ -113,21 +111,4 @@ private fun Information(
             style = MaterialTheme.typography.caption,
         )
     }
-}
-
-@Composable
-private fun EllipsisText(
-    modifier: Modifier = Modifier,
-    text: String,
-    style: TextStyle = LocalTextStyle.current,
-    maxLines: Int = 1,
-    overflow: TextOverflow = TextOverflow.Ellipsis,
-) {
-    Text(
-        modifier = modifier,
-        text = text,
-        style = style,
-        maxLines = maxLines,
-        overflow = overflow,
-    )
 }
