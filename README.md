@@ -1,7 +1,8 @@
 ## Environment
 minSdkVersion : 23
 
-android studio 최소 버전 : `Electric Eel | 2022.1.1`
+gradle plugin : 7.4.0
+- android studio 최소 버전 : `Electric Eel | 2022.1.1`
 
 ## Tech Stack
 
@@ -16,6 +17,8 @@ android studio 최소 버전 : `Electric Eel | 2022.1.1`
 
 ## Architecture
 
+
+
 - `Di using  Hilt`
 - `UDF using AAC ViewModel`
 - `Multi-Module`
@@ -23,8 +26,7 @@ android studio 최소 버전 : `Electric Eel | 2022.1.1`
 
 | 즐겨찾기 기능 |   페이징    | 네트워크 에러 대응  |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| ![ezgif com-video-to-gif](https://github.com/EvergreenTree97/itunes-tracklist/assets/70064912/9eca9adb-eaca-4ef1-aeaf-db308ba7ea7f) | ![ezgif com-video-to-gif (1)](https://github.com/EvergreenTree97/itunes-tracklist/assets/70064912/eb47a1d1-e00f-4861-a8a7-59c37770885a) | ![ezgif com-video-to-gif (1)](https://github.com/EvergreenTree97/itunes-tracklist/assets/70064912/e18027c3-d7c2-4140-8ee0-ebbd2850a7d2)
- 
+| ![favortie](https://github.com/EvergreenTree97/itunes-tracklist/assets/70064912/f0105f84-a478-4434-88ae-ed45449fc0ef)| ![ezgif com-video-to-gif](https://github.com/EvergreenTree97/itunes-tracklist/assets/70064912/2343d934-b32a-4564-888b-f8e06a254ce7) | ![ezgif com-video-to-gif (1)](https://github.com/EvergreenTree97/itunes-tracklist/assets/70064912/1a94f94a-3782-46ab-838b-3e5f2701c2d3)
 
 ## Issue Tracking
 
@@ -38,3 +40,8 @@ android studio 최소 버전 : `Electric Eel | 2022.1.1`
 3. 일반적으로 offset 의 경우, 다음 offset은 limit을 더한 offset+limit 이어야 하는데, 그렇지 않음을 확인
 
 결과 : 과제에서 사용하는 API는 offset을 page의 개념처럼 사용하고 있음을 알아내었고, page의 개념으로 paging을 적용하고 unique key 중복 문제를 해결
+
+## Edge case
+- 화면 세로 모드로 고정
+- 활동 유지 안함 모드에서 탭 상태 보존
+- 네트워크 에러 대응
