@@ -78,6 +78,10 @@ class HomeActivity : ComponentActivity() {
                             HomeSideEffect.SearchListScrollToTop -> {
                                 searchLazyListState.scrollToItem(0)
                             }
+
+                            HomeSideEffect.PagingDataFetchRetry -> {
+                                trackPagingItems.retry()
+                            }
                         }
                     }
                 }

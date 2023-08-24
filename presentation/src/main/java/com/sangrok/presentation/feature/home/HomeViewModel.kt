@@ -64,7 +64,7 @@ class HomeViewModel @Inject constructor(
     }
 
     fun retry() {
-        getSearchResults(term = DEFAULT_TERM)
+        postSideEffect { HomeSideEffect.PagingDataFetchRetry }
     }
 
     private fun getSearchResults(term: String) {
