@@ -1,8 +1,9 @@
 ## Environment
 minSdkVersion : 23
+targetSdkVersion : 33
 
-gradle plugin : 7.4.0
-- android studio 최소 버전 : `Electric Eel | 2022.1.1`
+gradle plugin : 7.3.0
+- android studio 최소 버전 : `Dolphin | 2021.3.1`
 
 ## Tech Stack
 
