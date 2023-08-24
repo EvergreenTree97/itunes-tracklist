@@ -35,7 +35,7 @@ internal fun TitleTopAppBar(
 }
 
 @Composable
-internal fun TopAppBar(
+private fun TopAppBar(
     modifier: Modifier = Modifier,
     leftContent: (@Composable () -> Unit)? = null,
     centerContent: (@Composable () -> Unit)? = null,
