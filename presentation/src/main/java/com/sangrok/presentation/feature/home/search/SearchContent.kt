@@ -39,7 +39,10 @@ private fun LazyListScope.pagingContents(
     trackPagingItems: LazyPagingItems<TrackModel>,
     onClickFavorite: (TrackModel) -> Unit,
 ) {
-    items(count = trackPagingItems.itemCount) { index ->
+    items(
+        count = trackPagingItems.itemCount,
+        key = trackPagingItems.itemKey { it.trackId },
+    ) { index ->
         trackPagingItems[index]?.let { trackModel ->
             TrackContent(
                 track = trackModel,
