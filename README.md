@@ -1,5 +1,6 @@
 ## Environment
 minSdkVersion : 23
+
 targetSdkVersion : 33
 
 gradle plugin : 7.3.0
