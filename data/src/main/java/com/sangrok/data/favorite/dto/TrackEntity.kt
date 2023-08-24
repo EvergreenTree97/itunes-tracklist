@@ -3,9 +3,9 @@ package com.sangrok.data.favorite.dto
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-internal const val FavoriteTableName = "favorite_tracks"
+internal const val FAVORITE_TABLE_NAME = "favorite_tracks"
 
-@Entity(tableName = FavoriteTableName)
+@Entity(tableName = FAVORITE_TABLE_NAME)
 data class TrackEntity(
     @PrimaryKey
     val trackId: Int,

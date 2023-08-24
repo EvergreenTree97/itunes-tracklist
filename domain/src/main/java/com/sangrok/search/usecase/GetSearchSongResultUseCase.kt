@@ -14,11 +14,11 @@ class SearchSongPagingDataUseCase @Inject constructor(
     ): Flow<PagingData<Track>> {
         return searchRepository.getSearchResults(
             term = term,
-            entity = entity,
+            entity = ENTITY,
         )
     }
 
     companion object{
-        private const val entity = "song"
+        private const val ENTITY = "song"
     }
 }

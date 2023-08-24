@@ -45,7 +45,7 @@ class HomeViewModel @Inject constructor(
     val searchSongTracks: Flow<PagingData<TrackModel>> = _searchSongTracks
 
     init {
-        getSearchResults(term = DefaultTerm)
+        getSearchResults(term = DEFAULT_TERM)
         getFavoriteTracks()
     }
 
@@ -64,7 +64,7 @@ class HomeViewModel @Inject constructor(
     }
 
     fun retry() {
-        getSearchResults(term = DefaultTerm)
+        getSearchResults(term = DEFAULT_TERM)
     }
 
     private fun getSearchResults(term: String) {
@@ -107,6 +107,6 @@ class HomeViewModel @Inject constructor(
     }
 
     companion object {
-        private const val DefaultTerm = "greenday"
+        private const val DEFAULT_TERM = "greenday"
     }
 }

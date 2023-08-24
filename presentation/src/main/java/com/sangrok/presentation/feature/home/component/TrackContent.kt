@@ -25,7 +25,7 @@ import com.sangrok.presentation.common.compose.ToggleIcon
 import com.sangrok.presentation.common.compose.watchaClickable
 import com.sangrok.presentation.feature.home.model.TrackModel
 
-private const val ThumbnailRatio = 4 / 3f
+private const val THUMBNAIL_RATIO = 4 / 3f
 
 @Composable
 internal fun TrackContent(
@@ -47,13 +47,13 @@ internal fun TrackContent(
             modifier = Modifier
                 .clip(RoundedCornerShape(8.dp))
                 .weight(1f)
-                .aspectRatio(ThumbnailRatio),
+                .aspectRatio(THUMBNAIL_RATIO),
             model = artworkUrl60,
         )
         Column(
             modifier = Modifier
                 .weight(1f)
-                .aspectRatio(ThumbnailRatio),
+                .aspectRatio(THUMBNAIL_RATIO),
         ) {
             Information(
                 trackName = trackName,

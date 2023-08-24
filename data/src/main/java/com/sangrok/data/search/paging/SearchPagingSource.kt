@@ -2,13 +2,13 @@ package com.sangrok.data.search.paging
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.sangrok.data.search.paging.SearchPagingConstant.PageSize
-import com.sangrok.data.search.paging.SearchPagingConstant.StartPage
+import com.sangrok.data.search.paging.SearchPagingConstant.PAGE_SIZE
+import com.sangrok.data.search.paging.SearchPagingConstant.START_PAGE
 import com.sangrok.search.model.Track
 
 internal object SearchPagingConstant {
-    const val StartPage = 0
-    const val PageSize = 20
+    const val START_PAGE = 0
+    const val PAGE_SIZE = 20
 }
 
 class SearchPagingSource(
@@ -19,14 +19,15 @@ class SearchPagingSource(
 ) : PagingSource<Int, Track>() {
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Track> {
         return try {
-            val position = params.key ?: StartPage
+            val position = params.key ?: START_PAGE
             val offset = getOffset(params.key, position)
             val limit = params.loadSize
             val response = getSearchResults(offset, limit)
 
+
             LoadResult.Page(
                 data = response,
-                prevKey = if (position == StartPage) {
+                prevKey = if (position == START_PAGE) {
                     null
                 } else {
                     position - 1
@@ -34,9 +35,12 @@ class SearchPagingSource(
                 nextKey = if (response.isEmpty()) {
                     null
                 } else {
-                    position + (params.loadSize / PageSize)
+                    position + (params.loadSize / PAGE_SIZE)
                 },
-            )
+            ).also {
+                println("offset: $offset limit: $limit")
+                println("$it")
+            }
         } catch (e: Exception) {
             LoadResult.Error(e)
         }
@@ -46,11 +50,11 @@ class SearchPagingSource(
         return null
     }
 
-    private fun getOffset(key: Int?, startPage: Int): Int {
+    private fun getOffset(key: Int?, position: Int): Int {
         return if (key != null) {
-            startPage * PageSize
+            position * PAGE_SIZE
         } else {
-            startPage
+            START_PAGE
         }
     }
 }

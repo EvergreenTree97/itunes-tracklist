@@ -4,7 +4,7 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import com.sangrok.data.datasource.SearchDataSource
-import com.sangrok.data.search.paging.SearchPagingConstant.PageSize
+import com.sangrok.data.search.paging.SearchPagingConstant.PAGE_SIZE
 import com.sangrok.data.search.paging.SearchPagingSource
 import com.sangrok.search.model.Track
 import com.sangrok.search.repository.SearchRepository
@@ -20,7 +20,7 @@ class SearchRepositoryImpl @Inject constructor(
     ): Flow<PagingData<Track>> {
         return Pager(
             config = PagingConfig(
-                pageSize = PageSize,
+                pageSize = PAGE_SIZE,
                 enablePlaceholders = true,
             ),
             pagingSourceFactory = {

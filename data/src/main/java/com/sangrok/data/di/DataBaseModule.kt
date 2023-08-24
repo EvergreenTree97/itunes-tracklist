@@ -17,7 +17,7 @@ internal class DataBaseModule {
     @Singleton
     @Provides
     fun provideAppDatabase(@ApplicationContext context: Context): WatchaDatabase {
-        return Room.databaseBuilder(context, WatchaDatabase::class.java, WatchaDatabase.Name)
+        return Room.databaseBuilder(context, WatchaDatabase::class.java, WatchaDatabase.NAME)
             .build()
     }
 

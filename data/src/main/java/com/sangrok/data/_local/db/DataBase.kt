@@ -14,6 +14,6 @@ abstract class WatchaDatabase : RoomDatabase() {
     abstract fun favoriteDao(): FavoriteDao
 
     companion object {
-        const val Name = "watcha-database"
+        const val NAME = "watcha-database"
     }
 }
