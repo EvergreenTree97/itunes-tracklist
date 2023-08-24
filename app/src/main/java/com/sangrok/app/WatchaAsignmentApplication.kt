@@ -1,4 +1,4 @@
-package com.sangrok.watcha_assignment.app
+package com.sangrok.app
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
