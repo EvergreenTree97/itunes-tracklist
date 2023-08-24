@@ -10,7 +10,7 @@ class ToggleFavoriteUseCase @Inject constructor(
     suspend operator fun invoke(
         isMarked: Boolean,
         track: Track,
-    ) {
+    ) = runCatching {
         if (isMarked) favoriteRepository.deleteFavorite(track)
         else favoriteRepository.addFavorite(track)
     }

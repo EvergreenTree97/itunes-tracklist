@@ -59,7 +59,10 @@ class HomeViewModel @Inject constructor(
             toggleFavoriteUseCase(
                 isMarked = trackModel.isFavorite,
                 track = trackModel.toDomain(),
-            )
+            ).onFailure {
+                it.printStackTrace()
+                // send to Firebase Crashlytics
+            }
         }
     }
 
@@ -108,5 +111,6 @@ class HomeViewModel @Inject constructor(
 
     companion object {
         private const val DEFAULT_TERM = "greenday"
+        private const val UNKNOWN_ERROR = "Unknown Error"
     }
 }
