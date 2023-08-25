@@ -28,7 +28,8 @@
 
 | 즐겨찾기 기능 |   페이징    | 네트워크 에러 대응  |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| ![favortie](https://github.com/EvergreenTree97/itunes-tracklist/assets/70064912/f0105f84-a478-4434-88ae-ed45449fc0ef)| ![ezgif com-video-to-gif](https://github.com/EvergreenTree97/itunes-tracklist/assets/70064912/2343d934-b32a-4564-888b-f8e06a254ce7) | ![ezgif com-video-to-gif (1)](https://github.com/EvergreenTree97/itunes-tracklist/assets/70064912/1a94f94a-3782-46ab-838b-3e5f2701c2d3)
+| ![favortie](https://github.com/EvergreenTree97/itunes-tracklist/assets/70064912/f0105f84-a478-4434-88ae-ed45449fc0ef)| ![ezgif com-video-to-gif](https://github.com/EvergreenTree97/itunes-tracklist/assets/70064912/2343d934-b32a-4564-888b-f8e06a254ce7) |![ezgif com-video-to-gif](https://github.com/EvergreenTree97/itunes-tracklist/assets/70064912/14128ab9-94d3-4e43-a547-1135a5a55a79)
+
 
 ## Bug
 - 현재 Itunes API offset을 사용할 때 중복된 데이터를 내려주고 있음
